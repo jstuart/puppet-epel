@@ -172,7 +172,7 @@ class epel (
 
     file {'/etc/yum.repos.d/epel-testing.repo':
       ensure  => 'file',
-      content => template("${module_name}/etc/yum.repos.d/epel.repo.erb"),
+      content => template("${module_name}/etc/yum.repos.d/epel-testing.repo.erb"),
       require => Package['epel-release'],
     }
   }
