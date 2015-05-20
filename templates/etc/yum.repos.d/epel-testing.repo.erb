@@ -1,0 +1,41 @@
+[epel-testing]
+name=Extra Packages for Enterprise Linux 6 - Testing - $basearch
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/testing/6/$basearch
+mirrorlist=<%= @mirror_base_uri %>?repo=testing-epel6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/testing/6/$basearch
+#mirrorlist=<%= @mirror_base_uri %>?repo=testing-epel6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel_testing ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>
+
+[epel-testing-debuginfo]
+name=Extra Packages for Enterprise Linux 6 - Testing - $basearch - Debug
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/testing/6/$basearch/debug
+mirrorlist=<%= @mirror_base_uri %>?repo=testing-debug-epel6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/testing/6/$basearch/debug
+#mirrorlist=<%= @mirror_base_uri %>?repo=testing-debug-epel6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel_testing_debuginfo ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>
+
+[epel-testing-source]
+name=Extra Packages for Enterprise Linux 6 - Testing - $basearch - Source
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/testing/6/SRPMS
+mirrorlist=<%= @mirror_base_uri %>?repo=testing-source-epel6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/testing/6/SRPMS
+#mirrorlist=<%= @mirror_base_uri %>?repo=testing-source-epel6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel_testing_source ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>

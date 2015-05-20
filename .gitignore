@@ -1,0 +1,6 @@
+Gemfile.lock
+spec/fixtures/
+pkg/
+.rspec_system/
+.bundle/
+*.swp

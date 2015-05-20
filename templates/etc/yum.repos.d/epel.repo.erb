@@ -1,0 +1,41 @@
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/6/$basearch
+mirrorlist=<%= @mirror_base_uri %>?repo=epel-6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/6/$basearch
+#mirrorlist=<%= @mirror_base_uri %>?repo=epel-6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Debug
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/6/$basearch/debug
+mirrorlist=<%= @mirror_base_uri %>?repo=epel-debug-6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/6/$basearch/debug
+#mirrorlist=<%= @mirror_base_uri %>?repo=epel-debug-6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel_debuginfo ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Source
+<% if @use_mirror -%>
+#baseurl=<%= @static_base_uri %>/6/SRPMS
+mirrorlist=<%= @mirror_base_uri %>?repo=epel-source-6&arch=$basearch
+<% else -%>
+baseurl=<%= @static_base_uri %>/6/SRPMS
+#mirrorlist=<%= @mirror_base_uri %>?repo=epel-source-6&arch=$basearch
+<% end -%>
+failovermethod=<%= @failover_method %>
+enabled=<%= (@enable_epel_source ? 1 : 0) %>
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=<%= (@gpg_check ? 1 : 0) %>
